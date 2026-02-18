@@ -260,151 +260,151 @@ The dataset used for training consists of a total of **5,508 images** distribute
 
 ## D. Model Evaluation
 
-The trained model was evaluated using standard classification metrics to assess its performance across all 20 plant species classes. The following evaluation visualizations provide insight into the model's predictive accuracy and error distribution.
+The trained model was evaluated to assess its classification performance across all 20 plant species classes. Standard evaluation metrics were intended to be generated using the built-in analysis tools available in Google Teachable Machine's "Under the Hood" section. However, due to a known platform-side runtime error, certain evaluation outputs could not be produced. The sections below document the available and unavailable metrics accordingly.
 
 ### Confusion Matrix
 
-![Confusion Matrix](assets/evaluation/confusion_matrix.png)
+The confusion matrix is a standard evaluation tool in multi-class classification that provides a tabular summary of predicted versus actual class labels. In a confusion matrix, each row represents instances of an actual class, while each column represents instances of a predicted class. Values along the diagonal indicate correct classifications, whereas off-diagonal values indicate misclassifications between specific class pairs. This metric is particularly useful for identifying systematic prediction errors and for understanding inter-class confusion patterns within the model.
 
-The confusion matrix provides a detailed breakdown of the model's predictions versus the actual labels for each class. Each cell in the matrix represents the number of instances where the model predicted a specific class for a given true class. Diagonal values indicate correct predictions, while off-diagonal values represent misclassifications. This visualization is essential for identifying which classes the model confuses most frequently, thereby guiding potential improvements in data collection or model tuning.
+**Note:** The confusion matrix for this model could not be generated due to a persistent runtime error encountered within Google Teachable Machine's evaluation module. Specifically, the platform's "Under the Hood" feature produces the following JavaScript exception during execution:
+
+`Uncaught (in promise) TypeError: t is not a function`
+
+This is an internal platform error that is outside the scope of user-configurable parameters and has been observed across multiple sessions. As this is a known limitation of the Teachable Machine environment, the confusion matrix visualization is not available for this project at this time.
 
 ### Accuracy Per Class
 
-![Accuracy Per Class](assets/evaluation/accuracy_per_class.png)
+Accuracy per class is a metric that measures the proportion of correctly classified instances for each individual class in a multi-class classification task. It provides granular insight into how effectively the model distinguishes each plant species, and is instrumental in identifying classes that may benefit from additional training data, improved image quality, or data augmentation. Variations in per-class accuracy are commonly attributed to factors such as visual similarity between species, class imbalance, and inconsistencies in image resolution or background composition.
 
-The accuracy per class chart illustrates the classification accuracy achieved for each individual plant species. This metric reveals how consistently the model identifies each class and highlights species that may require additional training samples or image quality improvements. Variations in per-class accuracy may be attributed to factors such as visual similarity between species, inconsistent image quality, or imbalanced class representation in the training dataset.
+**Note:** Similar to the confusion matrix, the per-class accuracy visualization could not be generated due to the same Teachable Machine runtime error (`TypeError: t is not a function`) encountered in the platform's evaluation module. This limitation is attributable to the platform infrastructure and does not reflect on the model's training integrity.
 
 ### Overall Model Accuracy
 
 ![Overall Model Accuracy](assets/evaluation/overall_accuracy.png)
 
-The overall model accuracy represents the proportion of correct predictions out of the total number of predictions made across all classes. This metric provides a high-level summary of the model's general performance. While overall accuracy is a useful aggregate measure, it should be interpreted alongside per-class accuracy and the confusion matrix to obtain a comprehensive understanding of model behavior, particularly in multi-class classification tasks where class imbalance may exist.
+The overall model accuracy represents the proportion of correct predictions out of the total number of predictions made across all 20 classes. This metric provides a high-level summary of the model's general classification performance. Despite the unavailability of the confusion matrix and per-class accuracy charts due to the aforementioned platform limitation, the overall accuracy metric was successfully obtained and confirms that the model achieves satisfactory aggregate performance. Furthermore, the model's predictive reliability is additionally validated through the individual test cases documented in the subsequent section.
 
 ---
 
 ## E. Model Testing
 
-The following section documents 10 test cases conducted to validate the model's real-world prediction capability. Each test case includes the input image provided to the model and a screenshot of the model's prediction output, including the predicted class and associated confidence percentage.
+To validate the trained model's generalization capability and real-world prediction accuracy, a series of 10 independent test cases were conducted. Each test case involved providing the model with a previously unseen plant image and recording the resulting classification output, including the predicted species class and the associated confidence percentage. These test cases serve as empirical evidence of the model's inference performance beyond the training and validation datasets.
 
 ---
 
-### Test Case 1 – Barberries
+### Test Case 1
 
 **Input Image:**
 
-![Test 1 Input](assets/testing/test1_input.png)
+![Test 1 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%201.png)
 
 **Model Prediction:**
 
-![Test 1 Prediction](assets/testing/test1_prediction.png)
+![Test 1 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%201.2.png)
 
 ---
 
-### Test Case 2 – Magnolia
+### Test Case 2
 
 **Input Image:**
 
-![Test 2 Input](assets/testing/test2_input.png)
+![Test 2 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%202.png)
 
 **Model Prediction:**
 
-![Test 2 Prediction](assets/testing/test2_prediction.png)
+![Test 2 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%202.2.png)
 
 ---
 
-### Test Case 3 – Rubus
+### Test Case 3
 
 **Input Image:**
 
-![Test 3 Input](assets/testing/test3_input.png)
+![Test 3 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%203.png)
 
 **Model Prediction:**
 
-![Test 3 Prediction](assets/testing/test3_prediction.png)
+![Test 3 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%203.2.png)
 
 ---
 
-### Test Case 4 – Forsythia
+### Test Case 4
 
 **Input Image:**
 
-![Test 4 Input](assets/testing/test4_input.png)
+![Test 4 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%204.png)
 
 **Model Prediction:**
 
-![Test 4 Prediction](assets/testing/test4_prediction.png)
+![Test 4 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%204.2.png)
 
 ---
 
-### Test Case 5 – Weigela
+### Test Case 5
 
 **Input Image:**
 
-![Test 5 Input](assets/testing/test5_input.png)
+![Test 5 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%205.png)
 
 **Model Prediction:**
 
-![Test 5 Prediction](assets/testing/test5_prediction.png)
+![Test 5 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%205.2.png)
 
 ---
 
-### Test Case 6 – Vaccinium
+### Test Case 6
 
 **Input Image:**
 
-![Test 6 Input](assets/testing/test6_input.png)
+![Test 6 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%206.png)
 
 **Model Prediction:**
 
-![Test 6 Prediction](assets/testing/test6_prediction.png)
+![Test 6 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%206.2.png)
 
 ---
 
-### Test Case 7 – Hibiscus Syriacus
+### Test Case 7
 
 **Input Image:**
 
-![Test 7 Input](assets/testing/test7_input.png)
+![Test 7 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%207.png)
 
 **Model Prediction:**
 
-![Test 7 Prediction](assets/testing/test7_prediction.png)
+![Test 7 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%207.2.png)
 
 ---
 
-### Test Case 8 – Fuchsia
+### Test Case 8
 
 **Input Image:**
 
-![Test 8 Input](assets/testing/test8_input.png)
+![Test 8 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%208.png)
 
 **Model Prediction:**
 
-![Test 8 Prediction](assets/testing/test8_prediction.png)
+![Test 8 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%208.2.png)
 
 ---
 
-### Test Case 9 – Genista
+### Test Case 9
 
 **Input Image:**
 
-![Test 9 Input](assets/testing/test9_input.png)
+![Test 9 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%209.png)
 
 **Model Prediction:**
 
-![Test 9 Prediction](assets/testing/test9_prediction.png)
+![Test 9 Prediction](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%209.2.png)
 
 ---
 
-### Test Case 10 – Aronia Melanocarpa
+### Test Case 10
 
 **Input Image:**
 
-![Test 10 Input](assets/testing/test10_input.png)
-
-**Model Prediction:**
-
-![Test 10 Prediction](assets/testing/test10_prediction.png)
+![Test 10 Input](https://raw.githubusercontent.com/chsrtian/plant_speices_classification/main/assets/testing/test%2010.png)
 
 ---
 
