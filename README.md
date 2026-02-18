@@ -288,7 +288,6 @@ Accuracy per class is a metric that measures the proportion of correctly classif
 
 ### Overall Model Accuracy
 
-![Overall Model Accuracy]
 ### Training Accuracy
 ![Accuracy](assets/evaluation/ACCURACY.png)
 
@@ -421,7 +420,41 @@ To validate the model’s generalization capability and real-world prediction ac
 
 ---
 
-## F. Repository Contents
+### F. Exported Model
+
+The trained model was exported from Google Teachable Machine and is available in this repository.
+
+- **Keras Model (.h5 file):**  
+[Download keras_model.h5](model/keras_model.h5)
+
+- **Additional Model Files:**  
+[View model folder](model/)
+
+### G. Reflection Answers
+
+1. How did the number of images per class affect your model’s accuracy?
+
+Based on my experience during training, the number of images per class had a direct impact on the model’s classification performance. I observed that plant species with a larger number of images, particularly those exceeding 300 samples, generally achieved more stable and confident predictions. A higher number of images provided greater variation in angles, lighting conditions, background composition, and plant growth stages, which allowed the model to learn more robust feature representations. In contrast, classes with fewer images exhibited slightly less consistent prediction confidence. Overall, a more balanced and sufficiently large dataset per class contributed to improved generalization and classification stability.
+
+2. Which plant species were most commonly misclassified and why?
+
+In my testing observations, one notable misclassification occurred between Aronia melanocarpa and Vaccinium. In a specific test case, the correct class of the uploaded sample image was Aronia melanocarpa; however, the model predicted it as Vaccinium with higher confidence. I believe this occurred due to the strong visual similarity between the two species, particularly in terms of leaf structure, berry-like fruit appearance, and overall foliage coloration.
+
+Both species share overlapping morphological characteristics, especially in images where distinguishing features such as fruit detail, leaf texture, or growth pattern are not clearly emphasized. As a result, the model likely focused on dominant visual cues common to both classes rather than subtle differentiating features. This instance demonstrates how inter-class similarity can influence prediction confidence in multi-class image classification tasks, particularly when species belong to closely related botanical groups.
+
+3. How did changing the epochs, batch size, or learning rate affect the training results?
+
+Adjusting the training parameters significantly influenced the model’s convergence behavior and overall performance. When the number of epochs was too low, the model did not fully converge, resulting in lower accuracy. Increasing the epochs to 100 allowed the training process to stabilize, as indicated by the plateau observed in the accuracy curve. The batch size of 32 provided a balanced approach between computational efficiency and gradient stability, preventing excessive fluctuations during weight updates. Additionally, a learning rate of 0.001 ensured steady convergence without overshooting the optimal solution. Overall, selecting appropriate hyperparameters contributed to smooth training dynamics and consistent performance improvements.
+
+4. What challenges did you encounter during dataset collection and labeling?
+
+One of the primary challenges I encountered was collecting a sufficiently diverse and high-quality dataset for each plant species. It was particularly difficult to source images without watermarks and with consistent resolution. Another challenge involved avoiding duplicate or near-duplicate images, as repeated patterns could introduce bias and negatively affect model generalization. Additionally, careful labeling was essential, especially for visually similar species, to prevent misclassification during training. Ensuring dataset consistency while maintaining diversity required significant attention during the data preparation phase.
+
+5. If you were to improve your model, what specific changes would you make and why?
+
+If I were to further improve the model, I would prioritize increasing dataset diversity, particularly for species that exhibit visual similarities. Expanding the dataset with additional images captured under varied environmental conditions would enhance the model’s generalization capability. I would also apply more extensive data augmentation techniques, such as rotation, scaling, and brightness adjustments, to simulate real-world variations. Furthermore, I would evaluate the model using external validation tools to obtain additional performance metrics such as precision, recall, and F1-score. These improvements would provide a more comprehensive understanding of class-level performance and further strengthen the robustness of the classification system.
+
+## H. Repository Contents
 
 The following is a summary of the files and directories contained within this repository.
 
@@ -435,5 +468,8 @@ The following is a summary of the files and directories contained within this re
 | `screenshots/`                    | Additional screenshots of the training process and dataset configuration |
 
 ---
+
+
+
 
 *This project was developed as part of our coursework requirement CSC120. The classification model was built and trained using [Google Teachable Machine](https://teachablemachine.withgoogle.com/).*
