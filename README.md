@@ -224,9 +224,17 @@ The classification model was trained using **Google Teachable Machine**, a brows
 
 | Parameter       | Value         |
 |-----------------|---------------|
-| Epochs          | *[To be specified]* |
-| Batch Size      | *[To be specified]* |
-| Learning Rate   | *[To be specified]* |
+| Epochs          | 100 |
+| Batch Size      | 32|
+| Learning Rate   | 0.001|
+
+### Explanation to the Tranining Hyperparamaters
+
+The model was trained for 100 epochs to allow sufficient learning iterations over the entire dataset. By increasing the number of epochs, I ensured that the model had enough opportunities to extract and refine distinguishing visual features among the 20 plant species. During training, the accuracy curve showed stable convergence before reaching 100 epochs, but I retained the full 100 epochs to maintain consistency and ensure that the model achieved optimal performance without premature stopping.
+
+I selected a batch size of 32 to balance training efficiency and stability. A batch size of 32 allows the model to process a manageable number of images per weight update, which helps maintain stable gradient updates while avoiding excessive memory consumption. This size is commonly used in image classification tasks because it provides an effective compromise between computational efficiency and model convergence behavior.
+
+The learning rate of 0.001 was chosen to ensure stable optimization during training. A value of 0.001 prevents large weight updates that could destabilize the model while still allowing the network to converge at an efficient rate. This learning rate is widely used in supervised image classification tasks and is considered a reliable default for achieving smooth and consistent convergence.
 
 ### Dataset Distribution
 
@@ -260,7 +268,7 @@ The dataset used for training consists of a total of **5,508 images** distribute
 
 ## D. Model Evaluation
 
-The trained model was evaluated to assess its classification performance across all 20 plant species classes. Standard evaluation metrics were intended to be generated using the built-in analysis tools available in Google Teachable Machine's "Under the Hood" section. However, due to a known platform-side runtime error, certain evaluation outputs could not be produced. The sections below document the available and unavailable metrics accordingly.
+I evaluated the trained model to assess its classification performance across all 20 plant species classes. I intended to generate standard evaluation metrics using the built-in analysis tools available in Google Teachable Machine’s “Under the Hood” section. However, due to a platform-side runtime error, certain evaluation outputs could not be produced. The sections below document both the available and unavailable metrics accordingly.
 
 ### Confusion Matrix
 
@@ -280,7 +288,12 @@ Accuracy per class is a metric that measures the proportion of correctly classif
 
 ### Overall Model Accuracy
 
-![Overall Model Accuracy](assets/evaluation/overall_accuracy.png)
+![Overall Model Accuracy]
+### Training Accuracy
+![Accuracy](assets/evaluation/ACCURACY.png)
+
+### Training Loss
+![Loss](assets/evaluation/LOSS.png)
 
 The overall model accuracy represents the proportion of correct predictions out of the total number of predictions made across all 20 classes. This metric provides a high-level summary of the model's general classification performance. Despite the unavailability of the confusion matrix and per-class accuracy charts due to the aforementioned platform limitation, the overall accuracy metric was successfully obtained and confirms that the model achieves satisfactory aggregate performance. Furthermore, the model's predictive reliability is additionally validated through the individual test cases documented in the subsequent section.
 
@@ -288,7 +301,7 @@ The overall model accuracy represents the proportion of correct predictions out 
 
 ## E. Model Testing
 
-To validate the trained model's generalization capability and real-world prediction accuracy, a series of 10 independent test cases were conducted. Each test case involved providing the model with a previously unseen plant image and recording the resulting classification output, including the predicted species class and the associated confidence percentage. These test cases serve as empirical evidence of the model's inference performance beyond the training and validation datasets.
+To validate the model’s generalization capability and real-world prediction accuracy, I conducted a series of 10 independent test cases. For each test case, I provided the model with a previously unseen plant image and recorded the resulting classification output, including the predicted species class and its corresponding confidence percentage. These test cases serve as empirical evidence of the model’s inference performance beyond the training and validation datasets.
 
 ---
 
@@ -423,4 +436,4 @@ The following is a summary of the files and directories contained within this re
 
 ---
 
-*This project was developed as part of a university coursework requirement. The classification model was built and trained using [Google Teachable Machine](https://teachablemachine.withgoogle.com/).*
+*This project was developed as part of our coursework requirement CSC120. The classification model was built and trained using [Google Teachable Machine](https://teachablemachine.withgoogle.com/).*
