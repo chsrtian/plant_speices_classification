@@ -108,7 +108,7 @@ The following section documents each of the 20 plant species classes used in thi
 
 ### 10. Aronia Melanocarpa
 
-![Aronia Melanocarpa](assets/plants/aronia_melanocarpa.jpg)
+![Aronia Melanocarpa](assets/plants/aronia.jpg)
 
 - **Common Name:** Black Chokeberry
 - **Scientific Name:** *Aronia melanocarpa*
