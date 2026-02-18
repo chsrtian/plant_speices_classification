@@ -78,7 +78,7 @@ The following section documents each of the 20 plant species classes used in thi
 
 ### 7. Hibiscus Syriacus
 
-![Hibiscus Syriacus](assets/plants/hibiscus syriacus.jpg)
+![Hibiscus Syriacus](assets/plants/hibiscus_syriacus.jpg)
 
 - **Common Name:** Rose of Sharon
 - **Scientific Name:** *Hibiscus syriacus*
